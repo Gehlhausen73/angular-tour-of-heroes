@@ -13,8 +13,15 @@ var mock_heroes_1 = require('./mock-heroes');
 var HeroService = (function () {
     function HeroService() {
     }
+    // I promise to return an array of heros
     HeroService.prototype.getHeros = function () {
-        return mock_heroes_1.HEROES;
+        return Promise.resolve(mock_heroes_1.HEROES);
+    };
+    HeroService.prototype.getHeroesSlowly = function () {
+        return new Promise(function (resolve) {
+            // Simulate server latency with 200 millisecond delay
+            setTimeout(function () { return resolve(mock_heroes_1.HEROES); }, 200);
+        });
     };
     HeroService = __decorate([
         core_1.Injectable(), 

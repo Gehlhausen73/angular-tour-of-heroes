@@ -20,7 +20,9 @@ var AppComponent = (function () {
         this.selectedHero = hero;
     };
     AppComponent.prototype.getHeros = function () {
-        this.heroes = this.heroSerice.getHeros();
+        var _this = this;
+        // when the promis resolves we THEN call the lamda (with input m) to process the results
+        this.heroSerice.getHeroesSlowly().then(function (m) { return _this.heroes = m; });
     };
     AppComponent.prototype.ngOnInit = function () {
         // when angular is ready it will call this OnInit method

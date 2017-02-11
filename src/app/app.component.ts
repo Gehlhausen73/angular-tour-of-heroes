@@ -84,7 +84,8 @@ export class AppComponent implements OnInit {
   }
 
   getHeros(): void {
-    this.heroes = this.heroSerice.getHeros();
+    // when the promis resolves we THEN call the lamda (with input m) to process the results
+    this.heroSerice.getHeroesSlowly().then(m => this.heroes = m);
   }
 
   ngOnInit(): void{
