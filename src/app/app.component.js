@@ -9,34 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_service_1 = require('./hero.service');
+// at this stage they call it a Router Component
 var AppComponent = (function () {
-    // this tell angular to supply a HeroService from someplace
-    function AppComponent(heroSerice) {
-        this.heroSerice = heroSerice;
+    function AppComponent() {
         this.title = 'Tour of Heroes';
     }
-    AppComponent.prototype.onSelect = function (hero) {
-        this.selectedHero = hero;
-    };
-    AppComponent.prototype.getHeros = function () {
-        var _this = this;
-        // when the promis resolves we THEN call the lamda (with input m) to process the results
-        this.heroSerice.getHeroesSlowly().then(function (m) { return _this.heroes = m; });
-    };
-    AppComponent.prototype.ngOnInit = function () {
-        // when angular is ready it will call this OnInit method
-        // which we use to fill in our list of heros
-        this.getHeros();
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <h1>{{title}}</h1>\n  <h2>My Heroes</h2>\n  <ul class=\"heroes\">\n    <li *ngFor=\"let hero of heroes\" \n      [class.selected]=\"hero === selectedHero\"\n      (click)=\"onSelect(hero)\">\n      <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n    </li>\n  </ul>\n  <my-hero-detail [hero]=\"selectedHero\"></my-hero-detail>\n  ",
-            styles: ["\n  .selected {\n    background-color: #CFD8DC !important;\n    color: white;\n  }\n  .heroes {\n    margin: 0 0 2em 0;\n    list-style-type: none;\n    padding: 0;\n    width: 15em;\n  }\n  .heroes li {\n    cursor: pointer;\n    position: relative;\n    left: 0;\n    background-color: #EEE;\n    margin: .5em;\n    padding: .3em 0;\n    height: 1.6em;\n    border-radius: 4px;\n  }\n  .heroes li.selected:hover {\n    background-color: #BBD8DC !important;\n    color: white;\n  }\n  .heroes li:hover {\n    color: #607D8B;\n    background-color: #DDD;\n    left: .1em;\n  }\n  .heroes .text {\n    position: relative;\n    top: -3px;\n  }\n  .heroes .badge {\n    display: inline-block;\n    font-size: small;\n    color: white;\n    padding: 0.8em 0.7em 0 0.7em;\n    background-color: #607D8B;\n    line-height: 1em;\n    position: relative;\n    left: -1px;\n    top: -4px;\n    height: 1.8em;\n    margin-right: .8em;\n    border-radius: 4px 0 0 4px;\n  }\n"],
-            providers: [hero_service_1.HeroService]
+            template: "\n    <h1>{{title}}</h1>\n    <a routerLink=\"/heroes\">Heroes</a>\n    <router-outlet></router-outlet>\n    ",
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
