@@ -9,16 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var hero_service_1 = require('./hero.service');
 var HeroesComponent = (function () {
     // this tell angular to supply a HeroService from someplace
-    function HeroesComponent(heroSerice) {
+    function HeroesComponent(heroSerice, router) {
         this.heroSerice = heroSerice;
+        this.router = router;
     }
     HeroesComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
     };
-    HeroesComponent.prototype.getHeros = function () {
+    HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
         // when the promis resolves we THEN call the lamda (with input m) to process the results
         this.heroSerice.getHeroesSlowly().then(function (m) { return _this.heroes = m; });
@@ -26,7 +28,10 @@ var HeroesComponent = (function () {
     HeroesComponent.prototype.ngOnInit = function () {
         // when angular is ready it will call this OnInit method
         // which we use to fill in our list of heros
-        this.getHeros();
+        this.getHeroes();
+    };
+    HeroesComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['/detail', this.selectedHero.id]);
     };
     HeroesComponent = __decorate([
         core_1.Component({
@@ -35,7 +40,7 @@ var HeroesComponent = (function () {
             templateUrl: './heroes.component.html',
             styleUrls: ['./heroes.component.css'],
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
     ], HeroesComponent);
     return HeroesComponent;
 }());

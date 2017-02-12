@@ -3,12 +3,10 @@ import { Component } from '@angular/core'
 // at this stage they call it a Router Component
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    template: `
-    <h1>{{title}}</h1>
-    <a routerLink="/heroes">Heroes</a>
-    <router-outlet></router-outlet>
-    `,
+    templateUrl: './app.component.html',
+    styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
 
