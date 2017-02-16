@@ -17,6 +17,7 @@ var HeroFormComponent = (function () {
         this.submitted = false;
     }
     HeroFormComponent.prototype.onSubmit = function () { this.submitted = true; };
+    HeroFormComponent.prototype.newHero = function () { this.model = new hero_1.Hero(42, '', ''); };
     Object.defineProperty(HeroFormComponent.prototype, "diagnostic", {
         // for testing
         get: function () { return JSON.stringify(this.model); },
