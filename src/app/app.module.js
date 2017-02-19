@@ -18,8 +18,6 @@ var dashboard_component_1 = require('./dashboard.component');
 var hero_service_1 = require('./hero.service');
 var app_routing_module_1 = require('./app-routing.module');
 var hero_form_component_1 = require('./hero-form.component');
-//
-// this is a change to test pushing from Visual Studio Code
 var AppModule = (function () {
     function AppModule() {
     }

@@ -11,11 +11,6 @@ import { HeroService }          from './hero.service'
 import { AppRoutingModule }     from './app-routing.module'
 import { HeroFormComponent } from './hero-form.component';
 
-
-//
-// this is a change to test pushing from Visual Studio Code
-
-
 @NgModule({
   imports: [ 
     BrowserModule, 
