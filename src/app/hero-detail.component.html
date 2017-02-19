@@ -10,7 +10,17 @@
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name" />
     </div>
+
+
+    <div>
+        <label>Powers List:</label> {{hero.power}}
+        <div *ngFor="let bob of hero.powers">
+            <input type="checkbox">{{bob}}
+        </div>
+    </div>
+
     <button (click)="editHero()">Edit</button>
-    <!--<hero-form></hero-form>-->
     <button (click)="goBack()">Back</button>
+    <br>
+    {{diagnostic}}
 </div>

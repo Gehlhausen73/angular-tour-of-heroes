@@ -33,6 +33,12 @@ var HeroDetailComponent = (function () {
     HeroDetailComponent.prototype.editHero = function () {
         this.router.navigate(['/edit', this.hero.id]);
     };
+    Object.defineProperty(HeroDetailComponent.prototype, "diagnostic", {
+        // for testing
+        get: function () { return JSON.stringify(this.hero); },
+        enumerable: true,
+        configurable: true
+    });
     __decorate([
         core_1.Input(), 
         __metadata('design:type', hero_1.Hero)

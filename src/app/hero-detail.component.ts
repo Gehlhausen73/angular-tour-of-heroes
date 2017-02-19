@@ -37,4 +37,7 @@ export class HeroDetailComponent implements OnInit{
     editHero(): void {
         this.router.navigate(['/edit', this.hero.id]);
     }
+
+    // for testing
+    get diagnostic() { return JSON.stringify(this.hero); }
 }

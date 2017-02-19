@@ -5,6 +5,7 @@ var Hero = (function () {
         this.name = name;
         this.power = power;
         this.alterEgo = alterEgo;
+        this.powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
     }
     return Hero;
 }());

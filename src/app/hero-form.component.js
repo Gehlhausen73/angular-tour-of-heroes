@@ -30,6 +30,7 @@ var HeroFormComponent = (function () {
         //console.log(this.route.params.switchMap);
         //this.model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
         //this.heroService.getHero(12).then(m => this.model = m);
+        this.newHero();
         //
         // why does model have to be an initialized hero before this works?
         this.route.params.
