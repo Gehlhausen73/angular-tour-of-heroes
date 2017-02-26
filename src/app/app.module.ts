@@ -9,7 +9,8 @@ import { HeroesComponent }      from './heroes.component';
 import { DashboardComponent }   from './dashboard.component';
 import { HeroService }          from './hero.service'
 import { AppRoutingModule }     from './app-routing.module'
-import { HeroFormComponent } from './hero-form.component';
+import { HeroFormComponent }    from './hero-form.component';
+import { WorkerFormComponent }  from './worker-form.component';
 
 @NgModule({
   imports: [ 
@@ -22,7 +23,8 @@ import { HeroFormComponent } from './hero-form.component';
     HeroDetailComponent, 
     HeroesComponent, 
     DashboardComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    WorkerFormComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ HeroService ]

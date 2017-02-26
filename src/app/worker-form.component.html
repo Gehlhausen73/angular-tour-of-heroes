@@ -1,0 +1,31 @@
+<!--This is the Edit view-->
+<div class="container">
+    <h1>Worker Form</h1>
+    <form (ngSubmit)="onSubmit()" #workerForm="ngForm">
+        <div class="form-group">
+            <label for="first">First Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="model.first" name="first" #first="ngModel">
+            <div [hidden]="first.valid || first.pristine" class="alert alert-danger">
+                First Name is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="last">Last Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="model.last" name="last" #last="ngModel">
+            <div [hidden]="last.valid || last.pristine" class="alert alert-danger">
+                Last Name is required
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+            <label for="power">Hero Power</label>
+            <select class="form-control" id="power" required [(ngModel)]="model.power" name="power">
+                <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+            </select>
+        </div>-->
+        <button type="submit" class="btn btn-success" [disabled]="!workerForm.form.valid">Submit</button>
+        <br>
+        <button type="button" class="btn btn-default" (click)="newWorker(); workerForm.reset()">New Worker</button>
+    </form>
+</div>

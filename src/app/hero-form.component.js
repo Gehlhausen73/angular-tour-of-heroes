@@ -20,19 +20,14 @@ var HeroFormComponent = (function () {
         this.powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
         //model: Hero;
         this.submitted = false;
-        //this.model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
+        // because the hero is loaded async a hero instance must be created for the display
+        // otherwise it will fault out
+        this.newHero();
     }
     HeroFormComponent.prototype.onSubmit = function () { this.submitted = true; };
     HeroFormComponent.prototype.newHero = function () { this.model = new hero_1.Hero(42, '', ''); };
     HeroFormComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('here in ngOnInit in hero-form');
-        //console.log(this.route.params.switchMap);
-        //this.model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
-        //this.heroService.getHero(12).then(m => this.model = m);
-        this.newHero();
-        //
-        // why does model have to be an initialized hero before this works?
         this.route.params.
             switchMap(function (params) { return _this.heroService.getHero(+params['id']); })
             .subscribe(function (m) { return _this.model = m; });

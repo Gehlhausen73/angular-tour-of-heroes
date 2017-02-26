@@ -18,7 +18,9 @@ export class HeroFormComponent implements OnInit{
             private heroService: HeroService,
             private route: ActivatedRoute
         ) { 
-            //this.model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
+            // because the hero is loaded async a hero instance must be created for the display
+            // otherwise it will fault out
+            this.newHero();
         }
 
     //model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
@@ -26,20 +28,10 @@ export class HeroFormComponent implements OnInit{
     //model: Hero;
     submitted = false;
 
-    
-
-
     onSubmit() { this.submitted = true; }
     newHero() { this.model = new Hero(42, '', ''); }
 
     ngOnInit(): void {
-        console.log('here in ngOnInit in hero-form');
-        //console.log(this.route.params.switchMap);
-        //this.model = new Hero(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
-        //this.heroService.getHero(12).then(m => this.model = m);
-        this.newHero();
-        //
-        // why does model have to be an initialized hero before this works?
         this.route.params.
             switchMap((params: Params) => this.heroService.getHero(+params['id']))
             .subscribe(m => this.model = m);

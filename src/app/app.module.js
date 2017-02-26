@@ -18,6 +18,7 @@ var dashboard_component_1 = require('./dashboard.component');
 var hero_service_1 = require('./hero.service');
 var app_routing_module_1 = require('./app-routing.module');
 var hero_form_component_1 = require('./hero-form.component');
+var worker_form_component_1 = require('./worker-form.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,7 +34,8 @@ var AppModule = (function () {
                 hero_detail_component_1.HeroDetailComponent,
                 heroes_component_1.HeroesComponent,
                 dashboard_component_1.DashboardComponent,
-                hero_form_component_1.HeroFormComponent
+                hero_form_component_1.HeroFormComponent,
+                worker_form_component_1.WorkerFormComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [hero_service_1.HeroService]
