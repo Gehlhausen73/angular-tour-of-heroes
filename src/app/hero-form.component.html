@@ -20,9 +20,18 @@
             <div class="form-group">
                 <label for="power">Hero Power</label>
                 <select class="form-control" id="power" required [(ngModel)]="model.power" name="power">
-                <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-            </select>
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                </select>
             </div>
+
+            <div class="checkbox">
+                <div *ngFor="let bob of model.myPower">
+                    <label class="left-block">
+                        <input type="checkbox" [(ngModel)]="bob.enabled" name="myPower"> {{bob.id}}
+                    </label>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
             <br>
             <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
